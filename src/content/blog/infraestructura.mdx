@@ -1,0 +1,77 @@
+# Plataforma de Franquicias Online para Venta de Remeras
+
+## Descripción del Proyecto
+Desarrollo de una plataforma escalable que permita crear múltiples tiendas online de venta de remeras bajo un modelo de franquicias. Cada unidad de negocio debe ser individual y gestionar independientemente sus productos, precios, stock y branding.
+
+## Arquitectura Recomendada
+
+### Enfoque General
+- Sistema multitenant donde cada franquicia opera como un "inquilino" independiente
+- Base única de código con personalización por tenant
+- Bases de datos segregadas o esquemas separados por franquicia
+- Sistema de autenticación centralizado con permisos por tenant
+
+### Stack Tecnológico (JavaScript)
+- **Backend**: Node.js con Express o NestJS
+- **Base de datos**: MongoDB o PostgreSQL
+- **Frontend**: React o Next.js
+- **Middleware**: API Gateway, Redis para caché
+
+### Mejores Prácticas
+1. Arquitectura modular
+2. Microservicios
+3. Contenedores y orquestación (Docker + Kubernetes)
+4. CI/CD para integración y despliegue continuos
+5. API RESTful
+6. Seguridad multitenant
+
+## Opciones de Infraestructura
+
+### Servicios Esenciales Necesarios
+1. Hosting de aplicación web
+2. Base de datos
+3. Almacenamiento de archivos
+4. CDN
+5. Servicio de autenticación
+6. Servicio de caché
+7. Sistema de monitoreo
+8. CI/CD pipeline
+
+### Opción 1: AWS Full Stack (para escalabilidad empresarial)
+- **Backend**: AWS ECS con Fargate
+- **Base de datos**: MongoDB Atlas o Amazon Aurora
+- **Almacenamiento**: Amazon S3
+- **CDN**: Amazon CloudFront
+- **Autenticación**: Amazon Cognito
+- **Caché**: Amazon ElastiCache (Redis)
+- **Monitoreo**: CloudWatch + X-Ray
+- **CI/CD**: AWS CodePipeline
+
+**Ventajas**: Altamente escalable, servicios integrados, soporte multirregión.
+
+### Opción 2: Arquitectura Moderna Cloud-Agnostic (para flexibilidad)
+- **Backend**: Google Cloud Run
+- **Base de datos**: MongoDB Atlas (multirregión)
+- **Almacenamiento**: Google Cloud Storage
+- **CDN**: Cloudflare
+- **Autenticación**: Firebase Authentication
+- **Caché**: Redis Labs
+- **Monitoreo**: Datadog
+- **CI/CD**: GitHub Actions
+
+**Ventajas**: Menor acoplamiento a un proveedor, buen rendimiento/precio, gestión simplificada.
+
+### Opción 3: Solución Simplificada (para comenzar rápido)
+- **Backend+Frontend**: Vercel
+- **Base de datos**: MongoDB Atlas
+- **Almacenamiento**: Cloudinary
+- **CDN**: Incluido en Vercel
+- **Autenticación**: Auth0
+- **Caché**: Upstash Redis
+- **Monitoreo**: Sentry + Vercel Analytics
+- **CI/CD**: Integrado en Vercel
+
+**Ventajas**: Configuración mínima, excelente experiencia de desarrollo, buena relación costo/beneficio.
+
+## Recomendación de Implementación
+Comenzar con la Opción 3 para validar el modelo de negocio, luego migrar a la Opción 2 para mayor flexibilidad y control, y finalmente considerar la Opción 1 cuando el negocio requiera escala empresarial con alta disponibilidad y rendimiento.
